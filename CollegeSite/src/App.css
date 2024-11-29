@@ -1,0 +1,16 @@
+.content-section {
+  position: relative;
+  z-index: 1;
+  margin-top: 100vh; /* Adjust this to match the height of your video */
+  /* padding: 2rem; */
+  
+}
+.section{
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 2rem; background-color: white;
+}
+.main-sec{
+    width: 100%;
+}
+.content-section .py-5.px-5.bg-white { margin-top: 5rem; /* Adjust based on your navbar's height */ }

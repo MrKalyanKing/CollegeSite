@@ -1,0 +1,17 @@
+.DamagR{
+    margin-top: 180px;
+}
+.grid{
+    margin-top: 100px;
+}
+.equal-size {
+    width: 100%;
+    height: 200px; /* Set the desired height */
+    object-fit: cover; /* Ensure the image covers the entire area */
+  }
+  
+  .grid-container .col {
+    padding: 5px; /* Optional: Add padding to avoid images sticking to each other */
+  }
+  
+  
