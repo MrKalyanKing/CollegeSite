@@ -3,11 +3,14 @@ import './App.css'
 import Navbar from "./Components/Navbar/Navbar";
 import Background from "./Components/Background/Background";
 import { useEffect } from "react";
-import Report from "./Components/ReportDamaged/Report";
-import Property from "./Components/PropertyReport/Property";
-import DamgeR from "./Components/DamageReporting/DamgeR";
-import Footer from "./Components/Footer/Footer";
 
+import { Route, Routes } from "react-router-dom";
+import Home from "./Components/pages/Home";
+import Service from "./Components/pages/Service";
+import About from "./Components/pages/about";
+import Blog from "./Components/pages/blog";
+import Contact from "./Components/pages/Contact";
+import Loginpopup from "./Components/Loginpopup/Loginpopup";
 const App = () => {
   // const [isScrolled, setIsScrolled] = useState(false);
   // useEffect(() => {
@@ -24,25 +27,20 @@ const App = () => {
   //     window.removeEventListener("scroll", handleScroll);
   //   };
   // }, []);
-
+   const [showLogin,setLogin]=useState(false)
   return (
-    <div className="main-sec">
-      <Navbar />
-      <Background/>
-      <main className="content-section  bg-white ">
-         <div className="py-5  section  ">
-          <div className="mx-5">
-          <Report />
-          <Property/>
-          <DamgeR/>
-          <Footer/>
-          </div>
-          
-          </div>
-          {/* Add more sections here if needed */} 
-           </main>
-          
-      </div>
+   <>
+    <Navbar setLogin={setLogin}/>
+   {showLogin?<Loginpopup setLogin={setLogin}/>:null}
+  
+   <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/service" element={<Service/>}/>
+      <Route path="/about" element={<About/>}/>
+      <Route path="/blog" element={<Blog/>}/>
+      <Route path="/contact" element={<Contact/>}/>
+   </Routes>
+   </>
   );
 };
 

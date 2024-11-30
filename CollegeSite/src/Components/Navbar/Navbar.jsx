@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import Button from './Button';
 
-const Navbar = () => {
+const Navbar = ({setLogin}) => {
     let Links =[
       {name:"Home",link:"/"},
-      {name:"Service",link:"/"},
-      {name:"About",link:"/"},
-      {name:"Blog",link:"/"},
-      {name:"Contact",link:"/"},
+      {name:"Service",link:"/service"},
+      {name:"About",link:"/about"},
+      {name:"Blog",link:"/blog"},
+      {name:"Contact",link:"/contact"},
     ];
     let [open,setOpen]=useState(false);
   return (
@@ -33,9 +33,8 @@ const Navbar = () => {
             </li>
           ))
         }
-        <Button>
-          SignUp
-        </Button>
+       <button className='bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 ' onClick={()=>setLogin(true)}  >SignUp</button>
+       
       </ul>
       </div>
     </div>

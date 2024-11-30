@@ -41,3 +41,21 @@ input{
         flex-direction: column;
     }
 }
+@media (max-width:1000px){
+   .input{
+    width: 10vh;
+    height: 38px; 
+   }
+   .damage-btn{
+    width: 10vh;
+   }
+}
+@media (max-width:1240px){
+    .input{
+        width: 40vh;
+        height: 40px;
+    }
+    .damage-btn{
+        width: 40vh;
+    }
+}

@@ -14,7 +14,11 @@
     width: 100%;
 }
 .content-section .py-5.px-5.bg-white { margin-top: 5rem; /* Adjust based on your navbar's height */ }
-
+@media (max-width:400px){
+  .content-section{
+    margin-top: 67vh !important;
+  }
+}
 @media (max-width:500px) {
     .section{
       margin-left: 0;
@@ -34,5 +38,15 @@
 @media (max-width:792px){
   .content-section{
     margin-top: 70vh;
+  }
+}
+@media (max-width:1040px){
+  .content-section{
+    margin-top: 70vh;
+  }
+}
+@media (max-width:2040px){
+  .content-section{
+    margin-top: 87vh;
   }
 }

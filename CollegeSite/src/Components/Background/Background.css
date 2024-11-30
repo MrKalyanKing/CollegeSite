@@ -43,6 +43,21 @@
   width: 20vh;
   height: 40px;
 }
+@media (max-width:375px){
+  .overlay{
+    top: 25%;
+  }
+  .overlay .main{
+    font-size: 5px;
+  }
+  .overlay .main1{
+    font-size: 8px;
+    
+  }
+  .overlay .btn1{
+    width: 10vh;
+  }
+}
 @media (max-width: 792px) {
   .background {
     top: 30%;
@@ -108,16 +123,47 @@
   }
 
   .overlay{
-    top: 33%;
+    top: 37% !important;
+    
   }
   .overlay .main{
-    font-size: 24px;
+    font-size: 34px !important;
   }
   .overlay .main1{
     font-size: 8px;
-    display: none;
+    
   }
   .overlay .btn1{
     width: 10vh;
+  }
+}
+@media (max-width:1040px){
+  .overlay{
+    top: 43%;
+  }
+  .overlay .main{
+    font-size: 48px;
+  }
+  .overlay .main1{
+    font-size: 18px;
+    
+  }
+  .overlay .btn1{
+    width: 20vh;
+  }
+}
+@media (max-width:1240px){
+  .overlay{
+    top: 53%;
+  }
+  .overlay .main{
+    font-size: 55px;
+  }
+  .overlay .main1{
+    font-size: 18px;
+    
+  }
+  .overlay .btn1{
+    width: 20vh;
   }
 }
