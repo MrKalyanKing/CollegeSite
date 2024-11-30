@@ -14,10 +14,10 @@ const Property = () => {
           </span>
         </div>
       </div>
-      <div className="row mt-5 property-flexs ">
+      <div className="row mt-5 property-flexs   ">
         <div className="col-6 bg bg-info-subtl property-col ">
           <h2 className="fs-4 fw-bold mb-2">Issue Resolution Feedback</h2>
-          <span className="">
+          <span className="span-txt">
             Students can confirm when issues are resolved, ensuring effective
             communication with management.
           </span>
@@ -26,7 +26,7 @@ const Property = () => {
 
         <div className="col-6 bg bg-info-subtl property-col ">
           <h2 className="fs-4 fw-bold mb-2">Submit Damage Report</h2>
-          <span className="">
+          <span className="span-txt">
             Upload photos and provide details like department, section, and hall
             ticket number for reporting
           </span>

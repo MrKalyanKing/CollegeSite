@@ -63,3 +63,9 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+@media (max-width:400px){
+    .login-popup-condition input{
+        width: 5vh;
+     }
+}

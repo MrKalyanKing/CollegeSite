@@ -16,7 +16,8 @@
 .content-section .py-5.px-5.bg-white { margin-top: 5rem; /* Adjust based on your navbar's height */ }
 @media (max-width:400px){
   .content-section{
-    margin-top: 67vh !important;
+    margin-top: 60vh !important;
+    
   }
 }
 @media (max-width:500px) {

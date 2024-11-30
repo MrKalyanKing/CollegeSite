@@ -22,7 +22,14 @@ input{
     height: 40px;
     width: 50vh;
 }
-
+@media (max-width:400px){
+    .input{
+        width: 30vh !important;
+    }
+    .damage-btn{
+        width: 30vh !important;
+    }
+}
 @media (max-width:500px){
     .footer{
         display: flex;

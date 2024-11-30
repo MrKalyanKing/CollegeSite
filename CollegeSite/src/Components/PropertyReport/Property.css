@@ -9,15 +9,32 @@
         display: flex;
         flex-direction: column;
         width: 100vh;
-        margin: 100px auto;
+        margin-right: -30px !important;
     }
     .property-col{
         margin-bottom: 30px;
     }
     .property-col img{
         border-radius: 5px;
+        width: 40vh !important;
     }
     .property{
         top: 30px;
     }
+    .span-txt{
+        font-size: 15px ;
+    }
 }
+
+@media (max-width:400px)
+{
+ .span-txt{
+    font-size: 15px;
+    
+    max-width: 50px !important; 
+         /* Hides overflowing text */
+   text-overflow: ellipsis;
+    /* white-space: nowrap;   */
+    vertical-align: middle; 
+  }
+ }
