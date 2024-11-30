@@ -1,0 +1,21 @@
+@media (max-width:500px){
+    .dam h1{
+        font-weight: bolder;
+    }
+    .report-flexs{
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+        text-align: center;
+    }
+    .report-flexs h2{
+        margin-bottom: 20px;
+        font-weight: 200;
+    }
+    
+}
+@media (max-width:400px){
+  .row h1{
+    font-size: 15px;
+  }
+}

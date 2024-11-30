@@ -1,6 +1,6 @@
 .footer{
-    margin-top: 150px;
-    background-color: blue;
+    margin-top: 70px;
+    background-color:#D7D3BF;
     
     
 }
@@ -8,7 +8,7 @@
     cursor: pointer;
 }
 .fa-brands:hover{
-    color: aqua;
+    color:white;
 }
 input{
     height: 50px;
@@ -21,4 +21,23 @@ input{
 .damage-btn{
     height: 40px;
     width: 50vh;
+}
+
+@media (max-width:500px){
+    .footer{
+        display: flex;
+        flex-direction: column;
+    }
+    .input{
+        width: 40vh;
+    }
+    .damage-btn{
+        width: 40vh;
+    }
+}
+@media (max-width:792px){
+    .footer{
+        display: flex;
+        flex-direction: column;
+    }
 }

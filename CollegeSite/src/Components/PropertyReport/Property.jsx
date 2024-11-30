@@ -1,7 +1,7 @@
 import React from "react";
 import "./Property.css";
-import damage from "/Users/malavath suresh/OneDrive/Desktop/project/CollegeSite/src/assets/damage.avif";
-import feedback from "/Users/malavath suresh/OneDrive/Desktop/project/CollegeSite/src/assets/feedback.avif";
+import damage from "@/assets/damage.avif";
+import feedback from "@/assets/feedback.avif";
 const Property = () => {
   return (
     <>
@@ -14,8 +14,8 @@ const Property = () => {
           </span>
         </div>
       </div>
-      <div className="row mt-5 ">
-        <div className="col-6 bg bg-info-subtl ">
+      <div className="row mt-5 property-flexs ">
+        <div className="col-6 bg bg-info-subtl property-col ">
           <h2 className="fs-4 fw-bold mb-2">Issue Resolution Feedback</h2>
           <span className="">
             Students can confirm when issues are resolved, ensuring effective
@@ -24,7 +24,7 @@ const Property = () => {
           <img className="mt-5" src={feedback} alt="feedback" />
         </div>
 
-        <div className="col-6 bg bg-info-subtl ">
+        <div className="col-6 bg bg-info-subtl property-col ">
           <h2 className="fs-4 fw-bold mb-2">Submit Damage Report</h2>
           <span className="">
             Upload photos and provide details like department, section, and hall

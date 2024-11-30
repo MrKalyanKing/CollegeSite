@@ -4,3 +4,20 @@
 .damage img{
     width: 50%;
 }
+@media (max-width:500px){
+    .property-flexs{
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+        margin: 100px auto;
+    }
+    .property-col{
+        margin-bottom: 30px;
+    }
+    .property-col img{
+        border-radius: 5px;
+    }
+    .property{
+        top: 30px;
+    }
+}

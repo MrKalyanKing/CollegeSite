@@ -1,9 +1,9 @@
 import React from "react";
 import './DamgeR.css'
-import grid1 from "/Users/malavath suresh/OneDrive/Desktop/project/CollegeSite/src/assets/grid1.avif";
-import grid2 from "/Users/malavath suresh/OneDrive/Desktop/project/CollegeSite/src/assets/grid2.avif";
-import  grid3 from "/Users/malavath suresh/OneDrive/Desktop/project/CollegeSite/src/assets/grid3.avif";
-import  grid4 from "/Users/malavath suresh/OneDrive/Desktop/project/CollegeSite/src/assets/grid4.avif";
+import grid1 from "@/assets/grid1.avif";
+import grid2 from "@/assets/grid2.avif";
+import  grid3 from "@/assets/grid3.avif";
+import  grid4 from "@/assets/grid4.avif";
 const DamgeR = () => {
   return (
     <div>

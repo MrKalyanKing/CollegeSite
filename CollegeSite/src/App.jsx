@@ -30,7 +30,7 @@ const App = () => {
       <Navbar />
       <Background/>
       <main className="content-section  bg-white ">
-         <div className="py-5  section ">
+         <div className="py-5  section  ">
           <div className="mx-5">
           <Report />
           <Property/>
