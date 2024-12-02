@@ -1,0 +1,48 @@
+.services{
+    margin-top:30vh;
+}
+.container{
+    overflow: hidden;
+}
+.service-container{
+  margin-left: 20px;
+  margin-right: 20px
+}
+.span-txt{
+    margin-bottom: 1rem !important;
+    display: inline-block;
+    max-width: 20rem;
+}
+.section-txt{
+    margin-top: 16vh;
+    
+}
+.grid-ct{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+@media (max-width:400px){
+    .service-container{
+        margin-left: 0px;
+        margin-right: 0px
+      }
+    .service-txt{
+        font-size: 15px !important;
+    }
+    .span-txt{
+        display: inline-block;  
+        max-width: 20rem !important;
+        word-wrap: break-word;
+    }
+    .service-container{
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+        
+    }
+    .col-edit img {
+        width: 50vh;
+        height: auto;
+        object-fit: cover;
+    }
+}
