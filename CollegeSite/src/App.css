@@ -16,7 +16,7 @@
 .content-section .py-5.px-5.bg-white { margin-top: 5rem; /* Adjust based on your navbar's height */ }
 @media (max-width:400px){
   .content-section{
-    margin-top: 60vh !important;
+    margin-top: 68vh !important;
     
   }
 }
@@ -50,4 +50,7 @@
   .content-section{
     margin-top: 87vh;
   }
+}
+.Toastify__toast-container {
+  z-index: 9999; /* Ensure it appears above other elements */
 }

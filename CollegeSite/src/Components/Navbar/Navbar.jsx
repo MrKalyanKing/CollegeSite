@@ -1,6 +1,12 @@
-import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import './Navbar.css'
+import {Link, useNavigate} from 'react-router-dom'
 import Button from './Button';
+import { AppContext } from '../ContextProvider/AppContext';
+import icon from '@/assets/profile_icon.png'
+import logout from '@/assets/logout_icon.png'
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = ({setLogin}) => {
     let Links =[
@@ -10,6 +16,19 @@ const Navbar = ({setLogin}) => {
       {name:"Contact",link:"/contact"},
     ];
     let [open,setOpen]=useState(false);
+    const {token,setToken}=useContext(AppContext)
+    const navigate=useNavigate()
+    const Logout =()=>{
+        localStorage.removeItem('token')
+        setToken('')
+        toast.success('Logged out successfully!', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        navigate('/')
+
+    }
+
+
   return (
     <div className='shadow-md w-full fixed top-0 left-0 z-10'>
       <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
@@ -33,10 +52,22 @@ const Navbar = ({setLogin}) => {
             </li>
           ))
         }
-       <button className='bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 ' onClick={()=>setLogin(true)}  >SignUp</button>
+        <div className='profile mx-3'>
+          {!token?<button className='bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 ' onClick={()=>setLogin(true)}  >SignUp</button>
+       : <div className='navbar-profile'>
+          <img src={icon} alt="icon" />
+          <ul className='nav-profile-dropdown'>
+            <li><span>Kalyan</span></li>
+            <hr />
+            <li onClick={Logout} ><img   src={logout} alt="logout" /><p>Logout</p></li>
+          </ul>
+       </div>
+       }
+        </div>
        
       </ul>
       </div>
+      <ToastContainer/>
     </div>
   )
 }

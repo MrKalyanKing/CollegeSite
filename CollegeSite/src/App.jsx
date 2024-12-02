@@ -12,6 +12,7 @@ import Blog from "./Components/pages/blog";
 import Contact from "./Components/pages/Contact";
 import Loginpopup from "./Components/Loginpopup/Loginpopup";
 import Footer from "./Components/Footer/Footer";
+import Feedback from "./Components/problemSubmit/Feedback";
 const App = () => {
   // const [isScrolled, setIsScrolled] = useState(false);
   // useEffect(() => {
@@ -40,6 +41,7 @@ const App = () => {
       <Route path="/about" element={<About/>}/>
       <Route path="/blog" element={<Blog/>}/>
       <Route path="/contact" element={<Contact/>}/>
+      <Route path="/feedback" element={<Feedback/>}/>
    </Routes>
    
    </>
