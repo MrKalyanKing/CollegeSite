@@ -51,6 +51,4 @@
     margin-top: 87vh;
   }
 }
-.Toastify__toast-container {
-  z-index: 9999; /* Ensure it appears above other elements */
-}
+
