@@ -8,16 +8,18 @@ import cors from 'cors'
 const port=3000
 const app=express()
 const Url=process.env.MONGO_URL
-const corsOptions = {
-    origin: '*', // Allow all origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-};
-app.use(cors(corsOptions));
-//middleware
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 
-app.use('/api',router)
+  app.use(cors({
+    origin:'*',
+    methods: ['GET', 'POST']
+  }))
+  
+
+app.use('/api/user',router)
+
 app.use('/api',router)
 
 app.get('/',(req,res)=>{

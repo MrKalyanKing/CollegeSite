@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState,useEffect } from 'react'
 import './Navbar.css'
 import {Link, useNavigate} from 'react-router-dom'
 import Button from './Button';
@@ -18,15 +18,29 @@ const Navbar = ({setLogin}) => {
     let [open,setOpen]=useState(false);
     const {token,setToken}=useContext(AppContext)
     const navigate=useNavigate()
+    //const [users, setUsers] = useState(null);
+    const [user, setUser] = useState(null); // To store logged-in user info
     const Logout =()=>{
         localStorage.removeItem('token')
+        localStorage.removeItem('user');
         setToken('')
+        setUser('')
         toast.success('Logged out successfully!', {
           position: toast.POSITION.TOP_RIGHT,
         });
         navigate('/')
-
     }
+    useEffect(() => {
+      const savedUser = localStorage.getItem("user");
+      if (savedUser) {
+        setUser(JSON.parse(savedUser));
+      }
+    }, []);
+    
+
+
+
+
 
 
   return (
@@ -57,7 +71,7 @@ const Navbar = ({setLogin}) => {
        : <div className='navbar-profile'>
           <img src={icon} alt="icon" />
           <ul className='nav-profile-dropdown'>
-            <li><span>Kalyan</span></li>
+            <li><span>{user?.name || "User"}</span></li>
             <hr />
             <li onClick={Logout} ><img   src={logout} alt="logout" /><p>Logout</p></li>
           </ul>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Services.css";
+import {Link} from 'react-router-dom'
 import resolve from "@/assets/reolveissue.avif";
 import report from "@/assets/reportissue.avif";
 import upload from "@/assets/uploadimg.avif";
@@ -20,14 +21,15 @@ const Services = () => {
           A platform for students to report classroom property damages easily.
         </span>
       </div>
-      <div className="row mt-5 service-container">
-        <div className="col-6 col-edit">
+      <Link to='/feedback'> <div className="row mt-5 service-container">
+       <div className="col-6 col-edit">
           <img className="rounded-2 img" src={report} alt="report" />
           <h2 className=" service-h1 fs-4 fw-bold mt-3">Report Issue</h2>
           <span className=" span-txt mt-3 fw-200">
             Submit damage details with department and hall ticket information.
           </span>
         </div>
+        
         <div className="col-6">
           <img className="rounded-2" src={resolve} alt="resolve" />
           <h1 className="fs-4 fw-bold mt-3">Resolve Issue</h1>
@@ -36,6 +38,7 @@ const Services = () => {
           </span>
         </div>
       </div>
+      </Link> 
       <div className="row service-container">
         <div className="col-6">
           <img className="rounded-2" src={feedback} alt="feedback" />
