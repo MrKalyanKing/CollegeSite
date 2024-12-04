@@ -5,8 +5,9 @@ import { useState } from "react";
 import upload from "@/assets/upload_area.png";
 import { AppContext } from "../ContextProvider/AppContext";
 import axios from "axios";
+import Loginpopup from "../Loginpopup/Loginpopup";
 
-const Feedback = () => {
+const Feedback = ({setLogin}) => {
   const floorClasses = {
     1: ["Class 1A", "Class 1B", "Class 1C", "Class 1D", "Class 1E"],
     2: [
@@ -28,6 +29,7 @@ const Feedback = () => {
   const [availableClasses, setAvailableClasses] = useState([]);
   const [selectedClass, setSelectedClass] = useState("");
   const [image, setImage] = useState(null);
+  const {token,setToken}=useContext(AppContext)
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -38,7 +40,7 @@ const Feedback = () => {
     course: "",
     description: "",
   });
-
+   
   // logging the value
   useEffect(() => {
     console.log(data, data.class, data.floor, data.course);
@@ -118,22 +120,6 @@ const Feedback = () => {
     formData.append("floors", JSON.stringify(floors)); // Ensure floors are sent as JSON string
     formData.append("image", image);
     console.log(formData);
-    // const floorsData = [
-    //   { floorNumber: 2, classes: ["Class 58"] }
-    // ];
-    
-    // const formData = new FormData();
-    // formData.append("name", "kalyan");
-    // formData.append("email", "dev@gmail.com");
-    // formData.append("hallticket", "1234");
-    // formData.append("gender", "male");
-    // formData.append("course", "BTECH");
-    // formData.append("description", "broken window");
-    // formData.append("floors", JSON.stringify(floorsData)); // Ensure you stringify the floors array
-    // formData.append("image", image); // Assuming you have a file input field
-    
-    // // Send this to your backend via a fetch or axios request
-    
     
     try {
       const response = await axios.post(`${url}/api/user/report`, formData);
@@ -164,7 +150,9 @@ const Feedback = () => {
   };
 
   return (
+
     <div className="container-fluid">
+      
       <form onSubmit={onSubmitHandler}>
         <div className="row justify-content-center align-items-center vh-100 feedback">
           <div className="col-md-8 col-lg-12">
@@ -381,6 +369,7 @@ const Feedback = () => {
           </div>
         </div>
       </form>
+      
     </div>
   );
 };
