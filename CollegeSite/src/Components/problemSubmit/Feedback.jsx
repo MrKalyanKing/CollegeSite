@@ -42,9 +42,9 @@ const Feedback = ({setLogin}) => {
   });
    
   // logging the value
-  useEffect(() => {
-    console.log(data, data.class, data.floor, data.course);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data, data.class, data.floor, data.course);
+  // }, [data]);
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
@@ -119,12 +119,12 @@ const Feedback = ({setLogin}) => {
     // Here we add floors as a JSON object, not stringified
     formData.append("floors", JSON.stringify(floors)); // Ensure floors are sent as JSON string
     formData.append("image", image);
-    console.log(formData);
+    //console.log(formData);
     
     try {
       const response = await axios.post(`${url}/api/user/report`, formData);
-      console.log("Axios Response:", response);
-      console.log("Axios Response Data:", response.data);
+      // console.log("Axios Response:", response);
+      // console.log("Axios Response Data:", response.data);
   
       if (response.data.success) {
         // Reset form data
@@ -147,12 +147,46 @@ const Feedback = ({setLogin}) => {
       console.error("Error during form submission:", error);
       alert("An error occurred while submitting the report");
     }
+
+     //email sent verificaion
+
+  try {
+    // Send the email
+    const emailResponse = await axios.post(`${url}/api/sendemail`, payload);
+    console.log("Email Response: ", emailResponse.data);
+
+    if (emailResponse.data.success) {
+      //alert("Report submitted and email sent successfully!");
+      // Reset form data
+      setData({
+        name: "",
+        email: "",
+        hallticket: "",
+        gender: "",
+        floor: "",
+        class: "",
+        course: "",
+        description: "",
+      });
+      setImage(null);
+    } else {
+      alert("Error sending email");
+    }
+  } catch (error) {
+    console.error("Error during email submission: ", error);
+    alert("An error occurred while submitting the report and sending the email");
+  }
+
+
   };
+   const isHallticket=data.hallticket.length>6;
 
   return (
 
     <div className="container-fluid">
-      
+      <div className="row emoji">
+        <h1 className=" fs-2 fw-bold text-center">Submit Your Damaged Property Here &#128511;</h1>
+      </div>
       <form onSubmit={onSubmitHandler}>
         <div className="row justify-content-center align-items-center vh-100 feedback">
           <div className="col-md-8 col-lg-12">
@@ -185,6 +219,7 @@ const Feedback = ({setLogin}) => {
                             placeholder="Enter Email"
                             onChange={onChangeHandler}
                             value={data.email}
+                            required
                           />
                         </div>
                       </div>
@@ -201,7 +236,9 @@ const Feedback = ({setLogin}) => {
                             placeholder="Enter name"
                             onChange={onChangeHandler}
                             value={data.name}
+                            required
                           />
+                          <div class="invalid-feedback">Name should Be Valid</div>
                         </div>
                       </div>
                     </div>
@@ -214,11 +251,12 @@ const Feedback = ({setLogin}) => {
                       <input
                         type="text"
                         name="hallticket"
-                        className="form-control form-control-lg"
+                        className={`form-control form-control-lg ${isHallticket ? 'valid' :''}`}
                         id="form3"
                         placeholder="Enter Hallticket number"
                         onChange={onChangeHandler}
                         value={data.hallticket}
+                        required
                       />
                     </div>
 
@@ -234,6 +272,7 @@ const Feedback = ({setLogin}) => {
                           value="female"
                           checked={data.gender === "female"}
                           onChange={onChangeHandler}
+                          required
                         />
                         <label className="form-check-label" for="inlineRadio1">
                           Female
@@ -248,6 +287,8 @@ const Feedback = ({setLogin}) => {
                           value="male"
                           checked={data.gender === "male"}
                           onChange={onChangeHandler}
+
+                          required
                         />
                         <label className="form-check-label" for="inlineRadio2">
                           Male
@@ -262,6 +303,7 @@ const Feedback = ({setLogin}) => {
                           value="other"
                           checked={data.gender === "other"}
                           onChange={onChangeHandler}
+                          required
                         />
                         <label className="form-check-label" for="inlineRadio3">
                           Other
@@ -282,6 +324,7 @@ const Feedback = ({setLogin}) => {
                             name="floor"
                             value={data.floor}
                             onChange={handleFloorChange}
+                            required
                           >
                             <option value="">Select Floor</option>
                             <option value="1">1st Floor</option>
@@ -302,6 +345,7 @@ const Feedback = ({setLogin}) => {
                             name="class"
                             value={data.class}
                             onChange={handleClassChange}
+                            required
                           >
                             <option value="">Select Class</option>
                             {availableClasses.map((className, index) => (
@@ -325,6 +369,7 @@ const Feedback = ({setLogin}) => {
                         name="course"
                         value={data.course}
                         onChange={handlecourseChange}
+                        required
                       >
                         <option value="">Select Course</option>
                         <option value="BTECH">BTECH</option>
@@ -344,6 +389,7 @@ const Feedback = ({setLogin}) => {
                         name="description"
                         onChange={onChangeHandler}
                         value={data.description}
+                        required
                       ></textarea>
                     </div>
 
@@ -356,6 +402,7 @@ const Feedback = ({setLogin}) => {
                         type="file"
                         className="form-control"
                         onChange={(e) => setImage(e.target.files[0])}
+                        required
                       />
                     </div>
 

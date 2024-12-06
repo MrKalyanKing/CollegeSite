@@ -1,7 +1,10 @@
 .feedback{
-    margin-top: 200px;
+    margin-bottom: 170px;
 }
 .image-upload{
     pointer-events: none;
     cursor: pointer;
+}
+.emoji{
+    margin-top: 120px;
 }

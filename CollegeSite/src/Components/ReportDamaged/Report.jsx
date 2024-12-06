@@ -1,6 +1,7 @@
 import React from "react";
 import './Report.css'
 import reportimg from '@/assets/report.avif'
+import {Link} from 'react-router-dom'
 const Report = () => {
   return (
     <>
@@ -29,7 +30,7 @@ const Report = () => {
       </div>
       <div className="row  mt-5  report-img ">
         <div className="col">
-            <img className="rounded" src={reportimg} alt="report-img" />
+           <Link to='/feedback'> <img className="rounded" src={reportimg} alt="report-img" /></Link>
         </div>
       </div>
     

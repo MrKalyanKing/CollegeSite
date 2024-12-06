@@ -1,4 +1,5 @@
 import { listings } from "../models/ReportModel.js";
+import validator from "validator";
 // config.js
 export const allowedFloors = [1, 2, 3, 4];
 export const allowedClasses = [
@@ -7,76 +8,6 @@ export const allowedClasses = [
   "Class 3A", "Class 3B", "Class 3C", "Class 3D", "Class 3E",
   "Class 4A", "Class 4B", "Class 4C", "Class 4D", "Class 4E",
 ];
-
-
-
-
-
-// Add Listing
-// export const addListing = async (req, res) => {
-//   const { name, email, hallticket, gender, course, description, floors } = req.body;
-//   let image_file = req.file ? `${req.file.filename}` : null;
-//   let parsedFloors = [];
-
-//   try {
-//     // Parse floors data to ensure it is a valid JSON
-//     parsedFloors = JSON.parse(floors);
-//   } catch (error) {
-//     return res.status(400).json({ success: false, message: "Invalid floors data format" });
-//   }
-
-//   if (!Array.isArray(parsedFloors) || parsedFloors.length === 0) {
-//     return res.status(400).json({ success: false, message: "Floors should be a non-empty array" });
-//   }
-
-//   const floorNumbers = new Set();
-//   for (const floor of parsedFloors) {
-//     if (!floor.floorNumber || !allowedFloors.includes(floor.floorNumber)) {
-//       return res.status(400).json({ success: false, message: `Invalid floor number: ${floor.floorNumber}` });
-//     }
-//     if (floorNumbers.has(floor.floorNumber)) {
-//       return res.status(400).json({ success: false, message: `Duplicate floor number in request: ${floor.floorNumber}` });
-//     }
-//     floorNumbers.add(floor.floorNumber);
-//     if (!floor.classes || !floor.classes.every(c => allowedClasses.includes(c))) {
-//       return res.status(400).json({ success: false, message: `Invalid classes for floor ${floor.floorNumber}` });
-//     }
-//   }
-
-//   // Ensure no floor numbers are null
-//   if (floorNumbers.has(null)) {
-//     return res.status(400).json({ success: false, message: "Floor number cannot be null" });
-//   }
-
-//   // Check for duplicates in the database
-//   const existingListing = await listings.findOne({
-//     "floors.floorNumber": { $in: Array.from(floorNumbers) },
-//   });
-
-//   if (existingListing) {
-//     return res.status(400).json({ success: false, message: "Duplicate floor number exists in the database" });
-//   }
-
-//   const report = new listings({
-//     name,
-//     email,
-//     hallticket,
-//     gender,
-//     course,
-//     description,
-//     floors: parsedFloors,
-//     image: image_file,
-//   });
-
-//   try {
-//     const savedReport = await report.save();
-//     res.status(201).json({ success: true, report: savedReport });
-//   } catch (error) {
-//     console.error("Error saving report:", error);
-//     res.status(500).json({ success: false, message: "Error saving report", error });
-//   }
-// };
-
 
 
 export const addListing = async (req, res) => {
@@ -116,12 +47,14 @@ export const addListing = async (req, res) => {
     floors: parsedFloors,
     image: image_file,
   });
-
+   if(!validator.isEmail(email)){
+    return res.json({success:false,message:'Enter an valid Email'})
+   }
   try {
     const savedReport = await report.save();
     res.status(201).json({ success: true, report: savedReport });
   } catch (error) {
-    console.error("Error saving report:", error);
+   // console.error("Error saving report:", error);
     res.status(500).json({ success: false, message: "Error saving report", error });
   }
 };

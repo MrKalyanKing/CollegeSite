@@ -1,5 +1,6 @@
 import React from 'react'
 import './Footer.css'
+import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <div>
@@ -23,7 +24,7 @@ const Footer = () => {
                 <h1 className='fs-2 fw-bold'>Resolve</h1>
                 <label htmlFor=""> Enter your Email</label><br></br>
                 <input className='input mt-2 mb-2' type="text" placeholder='Enter Email' name='email' /><br></br>
-                <button className='mb-2   mt-2 rounded-3 bg bg-warning damage-btn ' >Submit Damage Report</button>
+            <Link to='/feedback'>   <button className='mb-2   mt-2 rounded-3 bg bg-warning damage-btn ' >Submit Damage Report</button></Link>
             </div>
         </div>
     </div>

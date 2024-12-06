@@ -23,7 +23,7 @@ const login= async (req,res)=>{
     if (!token) {
         return res.status(500).json({ success: false, message: 'Token generation failed.' });
     }
-    console.log(user._id);
+    //console.log(user._id);
     
     res.json({ success: true, token });
 }

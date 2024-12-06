@@ -8,8 +8,10 @@ import cors from 'cors'
 const port=3000
 const app=express()
 import path from 'path'
+import nodemailer from 'nodemailer'
 import { fileURLToPath } from 'url';
 import { UserModel } from './models/Usermodel.js'
+import bodyParser from 'body-parser'
 const Url=process.env.MONGO_URL
 //app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -19,6 +21,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json())
+app.use(bodyParser.json())
 
   app.use(cors({
     origin:'*',
@@ -50,7 +53,50 @@ app.get('/',(req,res)=>{
         return res.status(404).json({ message: 'User not found' }); 
       }
          res.json(user); } catch (error) { res.status(400).json({ message:'Invalid token' }); } });
+     
 
+
+     // send Email
+    app.post('/api/sendemail', async(req,res)=>{
+      const {email,name,hallticket,gender,course,description,floors} =req.body
+    try{
+      const transporter=nodemailer.createTransport({
+        service:'gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth:{
+          user:process.env.USER_EMAIL,
+          pass:process.env.USER_PASS,
+        },
+      })
+      const sendEmail={
+        from:email,
+        to:process.env.USER_EMAIL,
+        subject:'New Submitted Report',
+        html:`
+        <h2>New Feedback Report</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Hall Ticket:</strong> ${hallticket}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>Course:</strong> ${course}</p>
+        <p><strong>Floor and Class:</strong> ${floors.map(f => `Floor: ${f.floorNumber}, Class: ${f.classes.join(", ")}`).join("; ")}</p>
+        <p><strong>Description:</strong> ${description}</p>
+        <span><strong>Check Image Login to your Admin pannel </strong><span>
+        `,
+      }
+       // send email
+    const info =await transporter.sendMail(sendEmail)
+    //console.log('email sent ssuccesfull',info)
+    return res.json({success:true,message:'msg sent!'})
+    }catch(err){
+    //console.error("Error sending email: ", err);
+    res.status(500).json({ success: false, message: "Error sending email" });
+    }
+    })
+
+   
 
 app.listen(port,()=>{
     console.log(`App is Running port${port}`)

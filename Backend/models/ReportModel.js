@@ -23,20 +23,39 @@ const floorSchema = new mongoose.Schema({
 });
 
 const reportSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  hallticket: String,
+  name: {
+    type:String,
+    required:true,
+  },
+  email:{
+    type:String,
+    required:true,
+  },
+  hallticket: {
+    type:String,
+    required:true,
+    min:10,
+    max:10
+  },
   gender: {
     type: String,
     enum: ["male", "female", "other"],
+    required:true,
   },
   course: {
     type: String,
     enum: ["BTECH"],
+    required:true,
   },
-  description: String,
+  description: {
+    type:String,
+    required:true,
+  },
   floors: [floorSchema],
-  image: String,
+  image:{
+   type:String,
+   required:true,
+  }
 });
 
 // Optional index (non-unique)
