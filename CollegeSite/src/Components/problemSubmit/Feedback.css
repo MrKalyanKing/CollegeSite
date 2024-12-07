@@ -8,3 +8,11 @@
 .emoji{
     margin-top: 120px;
 }
+.valid{
+    border: 2px solid green; 
+    background-color: #eaffea
+}
+.notvalid{
+    border: 2px solid red;
+     background-color: #ffeaea;
+}

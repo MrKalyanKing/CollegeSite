@@ -57,7 +57,7 @@ const Navbar = ({ setLogin }) => {
             <span className="text-3xl text-indigo-600 mr-1 pt-2">
               <img src={logo} alt="Logo" style={{width:'70px',height:'50px',marginRight:'23px'}} />
             </span>
-           <span className="clg-name">St.marry's</span> 
+           <span className="clg-name">St.mary's</span> 
           </div>
         </Link>
 

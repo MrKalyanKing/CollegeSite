@@ -1,5 +1,6 @@
 import { listings } from "../models/ReportModel.js";
 import validator from "validator";
+import mongoose from "mongoose";
 // config.js
 export const allowedFloors = [1, 2, 3, 4];
 export const allowedClasses = [
@@ -100,8 +101,26 @@ export const showReports = async (req, res) => {
 };
 
 
-// user details 
+// delete the Report
 
-export const userDetails=()=>{
-  
-}
+export const deleteReport = async (req, res) => {
+  const { id } = req.params;
+  //console.log("ID received for deletion:", id);
+
+  try {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ success: false, message: 'Invalid ID format' });
+    }
+
+    const list = await listings.findByIdAndDelete(id);
+    if (!list) {
+      return res.status(404).json({ success: false, message: 'Report not found' });
+    }
+
+    console.log('Report deleted', id);
+    return res.json({ success: true, message: 'Report Removed' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ success: false, message: 'Error removing the report' });
+  }
+};

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import './App.css'
 import axios from "axios";
 import Header from "./components/Breadcrumb/Breadcrumb";
 import SelectionArea from "./components/Selectionarea/SelectionArea";
@@ -48,7 +49,7 @@ export default function App() {
     <main className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8 mt-10">
       <div className="max-w-7xl mx-auto space-y-6">
        <Navbar/>
-        <div className="bg-blue-500 text-white p-4">Hello Admin!</div>
+        <div className="bg-blue-500 text-white p-4 admin">Hello Admin!</div>
         <Header />
 
         <SelectionArea

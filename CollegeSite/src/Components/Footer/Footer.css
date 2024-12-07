@@ -23,6 +23,9 @@ input{
     width: 50vh;
 }
 @media (max-width:400px){
+    .container{
+        margin-right: 10px !important;
+    }
     .input{
         width: 30vh !important;
     }

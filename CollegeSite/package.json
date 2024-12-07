@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@mobiscroll/react": "npm:@mobiscroll/react-next-trial@^5.32.2",
+    "aos": "^2.3.4",
     "axios": "^1.7.8",
     "mdb-react-ui-kit": "^9.0.0",
     "react": "^18.3.1",

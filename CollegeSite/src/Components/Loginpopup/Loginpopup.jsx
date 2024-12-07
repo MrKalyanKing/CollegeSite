@@ -4,10 +4,14 @@ import cross from "@/assets/cross_icon.png";
 import { useContext } from "react";
 import { AppContext } from "../ContextProvider/AppContext";
 import { ToastContainer, toast } from "react-toastify";
+import Aos from 'aos'
 // import 'react-toastify/dist/ReactToastify.css'
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 const Loginpopup = ({ setLogin }) => {
+  useEffect(()=>{
+    Aos.init({duration:1000})
+  })
   const { url, setToken } = useContext(AppContext);
   const [currState, setCurrState] = useState("SingUp");
 
@@ -81,12 +85,12 @@ const Loginpopup = ({ setLogin }) => {
   // },[data])
   return (
     <div className="login-popup">
-      <form onSubmit={onLogin} className="login-popup-container">
-        <div className="login-popup-title">
+      <form onSubmit={onLogin} className="login-popup-container" data-aos='zoom-out-left'>
+        <div className="login-popup-title" data-aos='fade-left'>
           <h1>{currState}</h1>
           <img onClick={() => setLogin(false)} src={cross} alt="" />
         </div>
-        <div className="login-popup-input">
+        <div className="login-popup-input" data-aos='fade-right'>
           {currState === "Login" ? (
             <></>
           ) : (
@@ -115,10 +119,10 @@ const Loginpopup = ({ setLogin }) => {
             placeholder="Enter Pass"
           />
         </div>
-        <button type="submit">
+        <button type="submit" data-aso='fade-down'>
           {currState === "SignUp" ? "Create A Account" : "Login"}
         </button>
-        <div className="login-popup-condition">
+        <div className="login-popup-condition" >
           <input type="checkbox" />
           <p>by Continuing,Agree to trems and condition,privacy&policy</p>
         </div>

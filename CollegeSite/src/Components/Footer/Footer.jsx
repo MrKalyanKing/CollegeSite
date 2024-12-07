@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Footer.css'
 import { Link } from 'react-router-dom'
+import Aos from 'aos'
 const Footer = () => {
+    useEffect(()=>{
+        Aos.init({duration:2000})
+    })
   return (
     <div>
-        <div className="row footer rounded-2 ">
+        <div className=" container mx-1 row footer rounded-2  " data-aos='zoom-in-right' >
             <div className='col-4 mt-5' >
                 <h2 className='fs-2 fw-bold mb-2'>Report</h2>
                 <span>Submit issues regarding classroom damages easily online.</span>
@@ -17,8 +21,9 @@ const Footer = () => {
             </div>
             <div className='col-4  mt-5 mb-5' >
                 <h2 className='fs-2 fw-bold mb-2'>Upload</h2>
-                <span className=''>+9392491012</span><br></br>
-                <span className=''>badhavathkalyan08@gmail.com</span>
+                <span className=''>phone:+91 9010455590</span><br></br>
+                <span>For Admission: 9154844272</span><br></br>
+                <span className=''>Email:enquiry@stmarysgroup.com</span>
             </div>
             <div className='col-4  mt-5 mb-2' >
                 <h1 className='fs-2 fw-bold'>Resolve</h1>

@@ -6,8 +6,12 @@ import upload from "@/assets/upload_area.png";
 import { AppContext } from "../ContextProvider/AppContext";
 import axios from "axios";
 import Loginpopup from "../Loginpopup/Loginpopup";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 const Feedback = ({setLogin}) => {
+  useEffect(()=>{
+    Aos.init({duration:2000})
+  })
   const floorClasses = {
     1: ["Class 1A", "Class 1B", "Class 1C", "Class 1D", "Class 1E"],
     2: [
@@ -49,8 +53,18 @@ const Feedback = ({setLogin}) => {
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
+    const input = event.target; 
+
+    if (value) {
+        input.classList.add("valid");
+        input.classList.remove('invalid');
+    } else {
+        input.classList.add('invalid');
+        input.classList.remove("valid");
+    }
+
     setData((data) => ({ ...data, [name]: value }));
-  };
+};
 
   const handleFloorChange = (e) => {
     const { value } = e.target;
@@ -185,9 +199,9 @@ const Feedback = ({setLogin}) => {
 
     <div className="container-fluid">
       <div className="row emoji">
-        <h1 className=" fs-2 fw-bold text-center">Submit Your Damaged Property Here &#128511;</h1>
+        <h1 className=" fs-2 fw-bold text-center" data-aos='fade-right'>Submit Your Damaged Property Here &#128511;</h1>
       </div>
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={onSubmitHandler} data-aos='zoom-out-right' >
         <div className="row justify-content-center align-items-center vh-100 feedback">
           <div className="col-md-8 col-lg-12">
             <div className="card my-4">
@@ -201,14 +215,14 @@ const Feedback = ({setLogin}) => {
                 </div>
                 <div className="col-md-7">
                   <div className="card-body text-black d-flex flex-column justify-content-center">
-                    <h3 className="mb-5 text-uppercase fw-bold">
+                    <h3 className="mb-5 text-uppercase fw-bold" data-aos='slide-left' >
                       Student Report on Damaged Property Form
                     </h3>
 
                     <div className="row">
                       <div className="col-md-6">
                         <div className="mb-4">
-                          <label for="form1" className="form-label">
+                          <label for="form1" className="form-label" data-aos='slide-right'>
                             Email
                           </label>
                           <input
@@ -225,7 +239,7 @@ const Feedback = ({setLogin}) => {
                       </div>
                       <div className="col-md-6">
                         <div className="mb-4">
-                          <label for="form2" className="form-label">
+                          <label for="form2" className="form-label"data-aos='slide-right'>
                             Name
                           </label>
                           <input
@@ -245,7 +259,7 @@ const Feedback = ({setLogin}) => {
 
                     {/* HallTicket Input Field */}
                     <div className="mb-4">
-                      <label for="form3" className="form-label">
+                      <label for="form3" className="form-label"data-aos='slide-right'>
                         HallTicket Number
                       </label>
                       <input
@@ -262,7 +276,7 @@ const Feedback = ({setLogin}) => {
 
                     {/* Gender Radio Buttons */}
                     <div className="d-md-flex justify-content-start align-items-center mb-4">
-                      <h6 className="fw-bold mb-0 me-4">Gender: </h6>
+                      <h6 className="fw-bold mb-0 me-4"data-aos='slide-right'>Gender: </h6>
                       <div className="form-check form-check-inline">
                         <input
                           className="form-check-input"
@@ -315,7 +329,7 @@ const Feedback = ({setLogin}) => {
                     <div className="row">
                       <div className="col-md-6">
                         <div className="mb-4">
-                          <label htmlFor="floorSelect" className="form-label">
+                          <label htmlFor="floorSelect" className="form-label"data-aos='slide-right'>
                             Floor
                           </label>
                           <select
@@ -336,7 +350,7 @@ const Feedback = ({setLogin}) => {
                       </div>
                       <div className="col-md-6">
                         <div className="mb-4">
-                          <label htmlFor="classSelect" className="form-label">
+                          <label htmlFor="classSelect" className="form-label"data-aos='slide-right'>
                             Class
                           </label>
                           <select
@@ -360,7 +374,7 @@ const Feedback = ({setLogin}) => {
 
                     {/* Course Select */}
                     <div className="mb-4">
-                      <label htmlFor="courseSelect" className="form-label">
+                      <label htmlFor="courseSelect" className="form-label"data-aos='slide-right'>
                         Course
                       </label>
                       <select
@@ -379,7 +393,7 @@ const Feedback = ({setLogin}) => {
 
                     {/* Description Text Area */}
                     <div className="mb-4">
-                      <label for="description" className="form-label">
+                      <label for="description" className="form-label"data-aos='slide-right'>
                         Description
                       </label>
                       <textarea
@@ -395,7 +409,7 @@ const Feedback = ({setLogin}) => {
 
                     {/* Image Upload */}
                     <div className="mb-4">
-                      <label className="form-label">Upload Image
+                      <label className="form-label"data-aos='slide-right'>Upload Image
                         <img src={image?URL.createObjectURL(image):upload} alt="upload" style={{height:'90px',width:'140px'}} />
                       </label>
                       <input
@@ -406,7 +420,7 @@ const Feedback = ({setLogin}) => {
                       />
                     </div>
 
-                    <button type="submit" className="btn btn-primary btn-lg">
+                    <button type="submit" className="btn btn-primary btn-lg"data-aos='fade-up'>
                       Submit Report
                     </button>
                   </div>

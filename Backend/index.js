@@ -5,7 +5,7 @@ dotenv.config()
 import mongoose from 'mongoose'
 import router from './Router/router.js'
 import cors from 'cors'
-const port=3000
+const port=process.env.PORT|| 3000;
 const app=express()
 import path from 'path'
 import nodemailer from 'nodemailer'
@@ -25,7 +25,7 @@ app.use(bodyParser.json())
 
   app.use(cors({
     origin:'*',
-    methods: ['GET', 'POST']
+    methods: ['GET', 'POST','DELETE']
   }))
   
 

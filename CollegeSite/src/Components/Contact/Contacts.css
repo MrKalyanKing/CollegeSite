@@ -10,6 +10,7 @@
     border-radius:5px ;
     margin-bottom: 50px;
 }
+
 @media (max-width:400px){
     .contact-flex{
         display: flex;
@@ -17,12 +18,29 @@
         width: 100vh;
     }
     .form{
-        width: 48vh;
+        width: 50vh;
     }
     .contact-img img{
         border-radius: 5px;
     }
-    form input{
-        width: 43vh;
+    .form input{
+        width: 35vh;
+    }
+}
+@media (max-width:600px){
+    .contact-flex{
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+        overflow: hidden;
+    }
+    .form{
+        width: 78vh;
+    }
+    .contact-img img{
+        border-radius: 5px;
+    }
+    .form input{
+        width: 35vh;
     }
 }

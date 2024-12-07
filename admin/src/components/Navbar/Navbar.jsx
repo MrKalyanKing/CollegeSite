@@ -35,7 +35,7 @@ const Navbar = () => {
           <span className="text-3xl text-indigo-600 mr-1 pt-2">
             <ion-icon name="logo-ionic"></ion-icon>
           </span>
-          Sri indu
+          St.mary's
         </div>
 
         <div
