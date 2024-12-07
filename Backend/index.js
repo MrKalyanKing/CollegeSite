@@ -96,13 +96,13 @@ app.get('/',(req,res)=>{
     res.status(500).json({ success: false, message: "Error sending email" });
     }
     })
-    const myObj = {
-      name: "John",
-      age: 30
-    };
-    const descriptor = gopd(myObj, 'name');
-    console.log(descriptor);
-   console.log(gopd)
+  //   const myObj = {
+  //     name: "John",
+  //     age: 30
+  //   };
+  //   const descriptor = gopd(myObj, 'name');
+  //   console.log(descriptor);
+  //  console.log(gopd)
 
 app.listen(port,()=>{
     console.log(`App is Running port${port}`)
