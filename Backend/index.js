@@ -5,6 +5,7 @@ dotenv.config()
 import mongoose from 'mongoose'
 import router from './Router/router.js'
 import cors from 'cors'
+import gopd from 'gopd'
 const port=process.env.PORT|| 3000;
 const app=express()
 import path from 'path'
@@ -95,8 +96,13 @@ app.get('/',(req,res)=>{
     res.status(500).json({ success: false, message: "Error sending email" });
     }
     })
-
-   
+    const myObj = {
+      name: "John",
+      age: 30
+    };
+    const descriptor = gopd(myObj, 'name');
+    console.log(descriptor);
+   console.log(gopd)
 
 app.listen(port,()=>{
     console.log(`App is Running port${port}`)
