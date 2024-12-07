@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import validator from "validator";
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import { adminPannel } from "../models/adminModel.js";
 import jwt from 'jsonwebtoken'
 
