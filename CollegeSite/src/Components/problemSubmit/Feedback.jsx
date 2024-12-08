@@ -44,7 +44,7 @@ const Feedback = ({setLogin}) => {
     course: "",
     description: "",
   });
-   
+  const isHallticket=data.hallticket.length >=10;
   // logging the value
   // useEffect(() => {
   //   console.log(data, data.class, data.floor, data.course);
@@ -62,6 +62,7 @@ const Feedback = ({setLogin}) => {
         input.classList.add('invalid');
         input.classList.remove("valid");
     }
+    
 
     setData((data) => ({ ...data, [name]: value }));
 };
@@ -193,7 +194,7 @@ const Feedback = ({setLogin}) => {
 
 
   };
-   const isHallticket=data.hallticket.length>6;
+  
 
   return (
 
@@ -265,7 +266,7 @@ const Feedback = ({setLogin}) => {
                       <input
                         type="text"
                         name="hallticket"
-                        className={`form-control form-control-lg ${isHallticket ? 'valid' :''}`}
+                        className={`form-control form-control-lg ${isHallticket?'valid':'notvalid'} `}
                         id="form3"
                         placeholder="Enter Hallticket number"
                         onChange={onChangeHandler}
