@@ -5,7 +5,7 @@ dotenv.config()
 import mongoose from 'mongoose'
 import router from './Router/router.js'
 import cors from 'cors'
-import gopd from 'gopd';
+//import gopd from 'gopd';
 
 const port=process.env.PORT|| 3000;
 const app=express()
@@ -97,7 +97,7 @@ app.get('/',(req,res)=>{
     res.status(500).json({ success: false, message: "Error sending email" });
     }
     })
-    console.log('Module loaded:', gopd);
+    //console.log('Module loaded:', gopd);
 
   //   const myObj = {
   //     name: "John",
