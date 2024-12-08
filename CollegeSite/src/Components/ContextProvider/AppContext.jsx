@@ -5,7 +5,7 @@ export const AppContext=createContext(null)
 const AppContextProvider=(props)=>{
  
 
-   const url='http://localhost:3000'
+   const url='https://collegesite-backend-e1x7.onrender.com'
 
    const [token,setToken]=useState('')
    const[reports,setReports]=useState([])

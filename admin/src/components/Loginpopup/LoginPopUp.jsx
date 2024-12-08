@@ -50,7 +50,7 @@ const LoginPopUp = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const url = "http://localhost:3000/api/admin/login";
+    const url = "https://collegesite-backend-e1x7.onrender.com/api/admin/login";
     try {
       const response = await axios.post(url, data);
       if (response.data.success) {

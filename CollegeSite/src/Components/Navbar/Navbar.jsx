@@ -36,7 +36,7 @@ const Navbar = ({ setLogin }) => {
       const token = localStorage.getItem("token");
       if (token) {
         try {
-          const response = await axios.get("http://localhost:3000/api/user", {
+          const response = await axios.get("https://collegesite-backend-e1x7.onrender.com/api/user", {
             headers: { Authorization: `Bearer ${token}` },
           });
           setUser(response.data);

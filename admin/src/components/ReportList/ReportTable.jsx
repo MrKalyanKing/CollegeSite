@@ -5,7 +5,7 @@ export default function ReportTable({ reports }) {
 
 
   const handleImageClick = useCallback((image) => {
-     setSelectedImage(`http://localhost:3000/uploads/${image}`); 
+     setSelectedImage(`https://collegesite-backend-e1x7.onrender.com/uploads/${image}`); 
     }, []); 
   const handleClose = useCallback(() => {
      setSelectedImage(null); 
@@ -18,7 +18,7 @@ export default function ReportTable({ reports }) {
       //console.log("Attempting to delete ID:", id);
 
       try {
-        const response = await fetch(`http://localhost:3000/api/report/delete/${id}`, {
+        const response = await fetch(`https://collegesite-backend-e1x7.onrender.com/api/report/delete/${id}`, {
           method: 'DELETE',
         });
     
@@ -64,7 +64,7 @@ export default function ReportTable({ reports }) {
             <tr key={index}>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                 <img
-                  src={`http://localhost:3000/uploads/${report.image}`}
+                  src={`https://collegesite-backend-e1x7.onrender.com/uploads/${report.image}`}
                   alt="image"
                   style={{ width: "100px", height: "80px" }}
                   onClick={()=>handleImageClick(report.image)}
