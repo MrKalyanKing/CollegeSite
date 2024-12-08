@@ -5,7 +5,7 @@ dotenv.config()
 import mongoose from 'mongoose'
 import router from './Router/router.js'
 import cors from 'cors'
-import gopd from 'gopd';
+import gopd from 'gOPD';
 
 const port=process.env.PORT|| 3000;
 const app=express()
