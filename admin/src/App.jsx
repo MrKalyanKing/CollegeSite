@@ -23,7 +23,7 @@ export default function App() {
     setError(null);
 
     try {
-      const response = await axios.post("http://localhost:3000/api/show", {
+      const response = await axios.post("https://collegesite-backend-e1x7.onrender.com/api/show", {
         department: selectedDepartment,
         floor: selectedFloor,
         classroom: selectedClassroom,
