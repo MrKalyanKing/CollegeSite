@@ -27,10 +27,11 @@ app.use(bodyParser.json())
 
   app.use(cors({
     origin:'*',
-    methods: ['GET', 'POST','DELETE']
+    methods: ['GET', 'POST','DELETE','OPTIONS'],
+    allowedHeaders:['Content-Type','Authorization']
   }))
   
-
+app.options('*',cors())
 app.use('/api/user',router)
 
 app.use('/api',router)

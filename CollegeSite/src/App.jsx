@@ -14,21 +14,7 @@ import Loginpopup from "./Components/Loginpopup/Loginpopup";
 import Footer from "./Components/Footer/Footer";
 import Feedback from "./Components/problemSubmit/Feedback";
 const App = () => {
-  // const [isScrolled, setIsScrolled] = useState(false);
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollTop = window.scrollY;
-  //     if (scrollTop > 50) {
-  //       setIsScrolled(true);
-  //     } else {
-  //       setIsScrolled(false);
-  //     }
-  //   };
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+  
    const [showLogin,setLogin]=useState(false)
   return (
    <>
