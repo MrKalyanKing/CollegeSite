@@ -75,7 +75,7 @@ app.get('/',(req,res)=>{
       const sendEmail={
         from:email,
         to:process.env.USER_EMAIL,
-        subject:'New Submitted Report',
+        subject:' You have New Damaged Report ',
         html:`
         <h2>New Feedback Report</h2>
         <p><strong>Name:</strong> ${name}</p>
@@ -85,7 +85,8 @@ app.get('/',(req,res)=>{
         <p><strong>Course:</strong> ${course}</p>
         <p><strong>Floor and Class:</strong> ${floors.map(f => `Floor: ${f.floorNumber}, Class: ${f.classes.join(", ")}`).join("; ")}</p>
         <p><strong>Description:</strong> ${description}</p>
-        <span><strong>Check Image Login to your Admin pannel </strong><span>
+        <span><strong>Check Image Login to your Admin pannel: </strong><span>
+        <a href='https://st-marys-college-adminpannel.onrender.com'><span>https://st-marys-college-adminpannel.onrender.com</span></a>
         `,
       }
        // send email
