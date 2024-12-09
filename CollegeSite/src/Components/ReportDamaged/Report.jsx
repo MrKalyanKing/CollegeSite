@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import './Report.css'
 import AOS from 'aos'
 import reportimg from '@/assets/report.avif'
+import reportimg1 from '@/assets/aaaa1.jpg'
 import {Link} from 'react-router-dom'
 import "aos/dist/aos.css";
 const Report = () => {
@@ -36,7 +37,7 @@ const Report = () => {
       </div>
       <div className="row  mt-5  report-img " data-aos='fade-left'>
         <div className="col">
-           <Link to='/feedback'> <img className="rounded" src={reportimg} alt="report-img" /></Link>
+           <Link to='/feedback'> <img className="rounded" src={reportimg1} alt="report-img" /></Link>
         </div>
       </div>
     

@@ -2,7 +2,10 @@ import React from "react";
 import { useEffect } from "react";
 import "./Property.css";
 import damage from "@/assets/damage.avif";
+import damage1 from "@/assets/aaa1.jpg";
 import feedback from "@/assets/feedback.avif";
+import feedback1 from "@/assets/ccc1.jpg";
+
 
 import AOS from 'aos'
 import "aos/dist/aos.css";
@@ -32,7 +35,7 @@ const Property = () => {
             Students can confirm when issues are resolved, ensuring effective
             communication with management.
           </span>
-          <img className="mt-5" src={feedback} alt="feedback" />
+          <img className="mt-5" src={feedback1} alt="feedback" />
         </div>
 
         <div className="col-6 bg bg-info-subtl property-col" data-aos="fade-left">
@@ -41,7 +44,7 @@ const Property = () => {
             Upload photos and provide details like department, section, and hall
             ticket number for reporting.
           </span>
-          <img className="mt-5 damage" src={damage} alt="damage" />
+          <img className="mt-5 damage" src={damage1} alt="damage" />
         </div>
       </div>
     </>
